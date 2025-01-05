@@ -3,31 +3,41 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master # або інша основна гілка вашого проекту
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      # Крок 1: Клонування репозиторію
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      # Крок 2: Налаштування Node.js
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "22.12.0" # Використовувати потрібну версію Node.js
+          node-version: "22"
 
+      # Крок 3: Налаштування Git
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Крок 4: Встановлення залежностей
       - name: Install dependencies
         run: npm install
 
-      - name: Build the project
-        run: npm run build:prod # або ваша команда для збірки
+      # Крок 5: Збірка проєкту
+      - name: Build project
+        run: npm run build:prod
 
+      # Крок 6: Деплой на GitHub Pages
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: master # або інша гілка, де зберігаються файли GitHub Pages
-          folder: build # Папка, в якій знаходиться ваша збірка
+        run: |
+          npm install --save-dev gh-pages
+          npx gh-pages -d dist --repo "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
