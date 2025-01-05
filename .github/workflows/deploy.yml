@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # або інша основна гілка вашого проекту
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "22.12.0" # Використовувати потрібну версію Node.js
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build:prod # або ваша команда для збірки
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: master # або інша гілка, де зберігаються файли GitHub Pages
+          folder: build # Папка, в якій знаходиться ваша збірка
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}

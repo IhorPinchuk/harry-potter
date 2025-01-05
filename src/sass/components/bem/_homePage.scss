@@ -1,0 +1,54 @@
+@use "sass:math";
+@use "../../utils/variables" as *;
+@use "../../utils/mixins" as *;
+
+@function letter-spacing($font-size, $spacing-factor) {
+  @return $font-size * $spacing-factor;
+}
+
+.homepage {
+  padding-top: 80px;
+}
+
+.homepage_bg {
+  background-image:
+   linear-gradient(
+      to top,
+      rgba(29, 29, 29, 1),
+      rgba(29, 29, 29, 0.13) 50%,
+      rgba(29, 29, 29, 1)
+    ),
+    url("~@/assets/bgHomePage.jpg");
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 253px;
+}
+
+.homepage_title {
+  margin-bottom: 80px;
+
+  font-family: Bluu Next Cyrillic, serif;
+  font-size: 80px;
+  line-height: 1.25;
+  letter-spacing: letter-spacing(80px, 0.01);
+  text-transform: uppercase;
+  text-align: center;
+  color: $primary-text-color;
+}
+
+.homepage_btn {
+  display: block;
+  margin: 0 auto;
+  padding: 19px 37px;
+  @include apply-text-style("btn");
+  color: $secondary-btn-color;
+  background-color: $primary-btn-color;
+  border: 1px solid $primary-btn-color;
+  border-radius: 100px;
+
+  &:hover,
+  &:focus {
+    color: $primary-btn-color;
+    background-color: $secondary-btn-color;
+  }
+}

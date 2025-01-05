@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "../utils/mapsStyle" as *;
+
+@mixin apply-text-style($style-name) {
+  @if map.has-key($text-styles, $style-name) {
+    $styles: map.get($text-styles, $style-name);
+    font-family: map.get($styles, font-family);
+    font-size: map.get($styles, font-size);
+    line-height: map.get($styles, line-height);
+    font-weight: map.get($styles, font-weight);
+  } @else {
+    @error "Стиль `#{$style-name}` не знайдено в $text-styles.";
+  }
+}

@@ -1,0 +1,13 @@
+.characters {
+    padding-bottom: 100px;
+}
+
+.characters_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.characters_item {
+    width: calc((100% - 40px) / 3);
+}

@@ -1,0 +1,26 @@
+@use "../../utils/variables" as *;
+@use "../../utils/mixins" as *;
+
+.characters_img {
+  margin-bottom: 20px;
+  border-radius: 20px;
+}
+
+.characters_btn {
+  display: block;
+  margin: 0 auto;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 320px;
+  @include apply-text-style("btn");
+  color: $primary-btn-color;
+  background-color: transparent;
+  border: 1px solid $primary-btn-color;
+  border-radius: 100px;
+
+  &:hover,
+  &:focus {
+    color: $secondary-btn-color;
+    background-color: $primary-btn-color;
+  }
+}

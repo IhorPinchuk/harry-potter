@@ -1,0 +1,10 @@
+@use "../utils/variables" as*;
+
+$text-styles: (  
+  "btn": (
+    font-family: $secondary-font,
+    font-size: 18px,
+    line-height: 1.3,
+    font-weight: 700
+  )
+);
