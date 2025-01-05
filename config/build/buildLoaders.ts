@@ -8,6 +8,9 @@ export function buildLoaders(options: BuildOptions): ModuleOptions["rules"] {
   const assetLoader = {
     test: /\.(png|svg|jpg|jpeg|gif)$/i,
     type: "asset/resource",
+    generator: {
+      filename: "assets/images/[name].[hash][ext][query]",
+    },
   };
 
   const cssLoader = {
