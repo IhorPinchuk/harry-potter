@@ -20,24 +20,20 @@ jobs:
         with:
           node-version: "22"
 
-      # Крок 3: Налаштування Git
-      - name: Configure Git
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      # Крок 4: Встановлення залежностей
+      # Крок 3: Встановлення залежностей
       - name: Install dependencies
         run: npm install
 
-      # Крок 5: Збірка проєкту
+      # Крок 4: Збірка проєкту
       - name: Build project
         run: npm run build:prod
 
-      # Крок 6: Деплой на GitHub Pages
+      # Крок 5: Деплой на GitHub Pages
       - name: Deploy to GitHub Pages
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           npm install --save-dev gh-pages
-          npx gh-pages -d dist --repo "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          npx gh-pages -d build --repo "https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
