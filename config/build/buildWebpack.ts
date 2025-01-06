@@ -4,6 +4,7 @@ import { buildLoaders } from "./buildLoaders";
 import { buildPlugins } from "./buildPlugins";
 import { buildResorvels } from "./buildResorvels";
 import { BuildOptions } from "./types/types";
+import * as packageJson from "../../package.json"
 
 export function buildWebpack(options: BuildOptions): webpack.Configuration {
   const { mode, paths } = options;
@@ -15,7 +16,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
     output: {
       path: paths.output,
       filename: "[name].[contenthash].js",
-      publicPath: "",
+      publicPath: isDev ? "/" : packageJson.homepage,
       clean: true,
     },
     plugins: buildPlugins(options),

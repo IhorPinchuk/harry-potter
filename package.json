@@ -1,6 +1,7 @@
 {
   "name": "harry-potter",
   "version": "1.0.0",
+  "homepage": "https://ihorpinchuk.github.io/harry-potter/",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --env mode=development",
