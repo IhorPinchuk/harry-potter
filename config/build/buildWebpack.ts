@@ -15,7 +15,7 @@ export function buildWebpack(options: BuildOptions): webpack.Configuration {
     output: {
       path: paths.output,
       filename: "[name].[contenthash].js",
-      publicPath: "/",
+      publicPath: "harry-potter/",
       clean: true,
     },
     plugins: buildPlugins(options),
