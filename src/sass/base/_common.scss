@@ -1,9 +1,8 @@
 @use "../utils/variables" as *;
 
 body {
-  // box-sizing: border-box;
-  // font-family: Bluu Next Cyrillic, serif;
+  font-family: $primary-font;
   margin: 0;
-  padding: 0;  
+  padding: 0;
   background-color: $bg-color;
 }

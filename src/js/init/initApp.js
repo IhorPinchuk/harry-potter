@@ -1,6 +1,6 @@
 import { homepageBtnElem } from "../constants/elementSelectors";
-import { markupAllCharacters } from "../markup/markupAllCharacters";
+import { renderCharactersSection } from "../render/renderCharactersSection";
 
 export function initApp() {
-    homepageBtnElem.addEventListener("click", markupAllCharacters);
+    homepageBtnElem.addEventListener("click", renderCharactersSection);
 }

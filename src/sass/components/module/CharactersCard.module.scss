@@ -1,12 +1,13 @@
 @use "../../utils/variables" as *;
 @use "../../utils/mixins" as *;
 
-.characters_img {
+.characters__img {
   margin-bottom: 20px;
   border-radius: 20px;
+  width: 100%;
 }
 
-.characters_btn {
+.characters__btn {
   display: block;
   margin: 0 auto;
   padding-top: 18px;

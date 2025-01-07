@@ -1,0 +1,24 @@
+@use "../../utils/variables" as *;
+@use "../../utils/mixins" as *;
+.students {
+  padding-top: 80px;
+}
+
+.students__title {
+  margin-bottom: 80px;
+  @include apply-text-style("title");
+  text-transform: uppercase;
+  text-align: center;
+  color: $primary-text-color;
+}
+
+.students__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.students__item {  
+    width: calc((100% - 60px) / 4);
+    height: 452px;
+}

@@ -1,6 +1,25 @@
 @font-face {
-    font-family: "Bluu Next Cyrillic";
-    src: url("/src/fonts/bluuNextCyrillic/Bluu\ Next\ Cyrillic.woff2") format("woff2"),
+  font-family: "Bluu Next Cyrillic";
+  font-weight: 700;
+  font-style: normal;
+  src: url("/src/fonts/bluuNextCyrillic/Bluu\ Next\ Cyrillic.woff2")
+      format("woff2"),
     url("/src/fonts/bluuNextCyrillic/Bluu\ Next\ Cyrillic.woff") format("woff"),
     url("/src/fonts/bluuNextCyrillic/Bluu\ Next\ Cyrillic.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/src/fonts/inter/Inter-Regular.woff2") format("woff2"),
+    url("/src/fonts/inter/Inter-Regular.ttf") format("ttf");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  font-style: normal;
+  src: url("/src/fonts/inter/Inter-Medium.woff2") format("woff2"),
+    url("/src/fonts/inter/Inter-Medium.ttf") format("ttf");
 }

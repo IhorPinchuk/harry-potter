@@ -3,23 +3,24 @@ import charactersCardStyle from "@/sass/components/module/CharactersCard.module.
 import { menuAllCharacters } from "../data/menuAllCharacters";
 
 
-export function createMarkupAllCharacters() {
+export function createMarkupCharactersSection() {
   const markup = menuAllCharacters
-    .map((character) => {
-      return `<li class="${charactersStyle.characters_item}">
+    .map(character => 
+       `<li class="${charactersStyle.characters__item}">
         <article class="characters_card">
-          <img src="${character.img}" alt="${character.name}" class="${charactersCardStyle.characters_img}">           
-            <button class="${charactersCardStyle.characters_btn}" data-page="${character.data}">
+          <img src="${character.img}" alt="${character.name}" class="${charactersCardStyle.characters__img}">           
+            <button class="${charactersCardStyle.characters__btn}" data-page="${character.data}">
               ${character.name}
             </button>
             </article>
-          </li>`;
-    })
+          </li>`
+    )
     .join("");
+  
   return `
         <section class="${charactersStyle.characters}">
         <div class="container">            
-            <ul class="${charactersStyle.characters_list}">
+            <ul class="${charactersStyle.characters__list}">
                 ${markup}
             </ul>
             </div>

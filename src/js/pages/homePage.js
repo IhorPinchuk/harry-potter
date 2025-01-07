@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
-    <title>Harry Potter</title>
-  </head>
-  <body>
-    <main id="main-content">
-      <section class="homepage">
+import { mainContentElem } from "../constants/elementSelectors";
+import { createMarkupCharactersSection } from "../createMarkup/createMarkupCharactersSection";
+
+export function homePage() {
+    const markup = `
+    <section class="homepage">
         <div class="homepage__bg">
         <div class="container">
         <h1 class="homepage__title">Ласкаво просимо <br>у світ Гаррі Поттера</h1>
@@ -15,6 +11,7 @@
       </div>
       </div>
       </section>
-    </main>
-  </body>
-</html>
+      ${createMarkupCharactersSection()}`;
+    
+    mainContentElem.innerHTML = markup;
+}
